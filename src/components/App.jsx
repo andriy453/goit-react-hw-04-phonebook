@@ -21,17 +21,16 @@ const formSabmitHendler = ( name, number ) => {
     name,
     number,
   };
-  if (
-    contacts.find(
-      contact => contact.name.toLowerCase() === name.toLowerCase()
-    )
-  ) {
-    Notiflix.Notify.failure(`${name} is already in contacts.`);
-  } else if (contacts.find(contact => contact.number === number)) {
-    Notiflix.Notify.failure(`${number} is already in contacts.`);
-  } else {
-    setContacts([contact, ...contacts]);
-  }
+    if ( contacts?.find(contact => contact.name.toLowerCase() === name.toLowerCase())
+    ) {
+      alert(`${name} is already in contacts.`);
+    } else if ( contacts?.find(contact => contact.number === number)) {
+      alert(`${number} is already in contacts.`);
+    } else if (contacts !==null) {
+      setContacts( [contact, ...contacts])
+      }else{
+      setContacts( [contact])
+    }
 };
 
 const ChangeFilter = e => {
@@ -47,10 +46,10 @@ useEffect((prevState)=>{
     window.localStorage.setItem('contacts', JSON.stringify(contacts));
     }
 },[contacts])
-const NomrmalizeFilter = filter.toLowerCase();
-let VilibleTodos = contacts.filter( cont =>
-  cont.name.toLowerCase().includes(NomrmalizeFilter)
-);
+    const NomrmalizeFilter = filter.toLowerCase();
+    const VilibleTodos = contacts?.filter(cont =>
+      cont.name.toLowerCase().includes(NomrmalizeFilter)
+    );
 return (
 <>
   <Container>
