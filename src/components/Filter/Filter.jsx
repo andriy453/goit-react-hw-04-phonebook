@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
-import '../../components/Filter/Filter.css';
+import css from  '../../components/Filter/Filter.module.css';
 
-const Filter = ({ value =  '', onChange }) => {
+const Filter = ({ value, onChange }) => {
   return (
     <>
-      <p className="filter-text">Find contacts by name</p>
+      <p className={css.filter_text}>Find contacts by name</p>
       <label className="Filter_Todo">
         <input
           type="text"
-          className="filter_inp"
+          className={css.filter_inp}
           value={value}
           onChange={onChange}
         />

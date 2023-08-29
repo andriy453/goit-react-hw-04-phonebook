@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import '../../components/ContactForm/ContactForm.css';
+import css from  '../../components/ContactForm/ContactForm.module.css';
 
 const  ContactForm  = ({onSubmit}) => {
 const [name,  setName] = useState('');
@@ -30,10 +30,10 @@ const [number,  setNumber] = useState('');
 return (
   <div>
     <form onSubmit={hendleSabmit}>
-      <label className="lable">
+      <label className={css.lable}>
         Name
         <input
-          className="contact-inp"
+          className={css.contact_inp}
           onChange={hendelChange}
           value={name}
           type="text"
@@ -43,10 +43,10 @@ return (
           required
         />
       </label>
-      <label className="lable">
+      <label className={css.lable}>
         Number
         <input
-          className="contact-inp"
+          className={css.contact_inp}
           onChange={hendelChange}
           value={number}
           type="tel"
@@ -56,7 +56,7 @@ return (
           required
         />
       </label>
-      <button className="sabmit_contact" type="sabmit">
+      <button className={css.sabmit_contact} type="sabmit">
         add contact
       </button>
     </form>
