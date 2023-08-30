@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 
 import css from  '../../components/ContactList/ContactList.module.css';
 
-const ContactList = ({ contacts  = ' ', OnDelite }) => {
+const ContactList = ({ contacts, OnDelite }) => {
   return (
     <ul className={css.contact_list}>
-      {contacts.map(({ id, name, number }) => {
+      { contacts && contacts.map(({ id, name, number }) => {
         return (
           <li className={css.contact_item} key={id}>
             <p className={css.contact__text}>{name}</p>
